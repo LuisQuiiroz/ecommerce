@@ -54,13 +54,13 @@ function Empty () {
 
 export function CartItem () {
   return (
-    <div className='relative top-2 mx-2 z-10'>
-      <div className='absolute bg-cus-white rounded-xl w-full'>
+    <div className='sticky top-20 md:top-24 sm:ml-auto max-w-sm mx-4 z-10'>
+      <div className='absolute right-0 bg-cus-white rounded-xl w-full border border-cus-orange'>
         <div className='p-6'>
           <div className='pb-6 border-b-2'>
             <p className='font-k-bold'>Cart</p>
           </div>
-          {products.products.length > 10 ? <WithItems /> : <Empty />}
+          {products.products.length > 1 ? <WithItems /> : <Empty />}
         </div>
       </div>
     </div>

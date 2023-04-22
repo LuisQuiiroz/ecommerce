@@ -1,14 +1,6 @@
-import { useState } from 'react'
 import { IconNext, IconPrevious } from './Icons'
 
-export function Carousel ({ children: slides }) {
-  const [curr, setCurr] = useState(0)
-
-  const prev = () =>
-    setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1))
-
-  const next = () =>
-    setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1))
+export function Carousel ({ children: slides, curr, prev, next }) {
   return (
     <div className='overflow-hidden relative'>
       <div

@@ -2,6 +2,7 @@ import './index.css'
 import { ContentItem } from './components/ContentItem'
 import { Header } from './components/Header'
 import { Carousel } from './components/Carousel'
+import { ImgsItem } from './components/ImgsItem'
 
 export const nameCompany = 'SNEAKERS COMPANY'
 
@@ -45,14 +46,16 @@ function App () {
   const productToShow = products.products[0]
   const slides = productToShow.images
   return (
-    <div className='font-kumbh-sans'>
+    <div className='font-kumbh-sans max-w-screen-xl mx-auto'>
       <Header />
-      <Carousel>
-        {slides.map(slide => (
-          <img src={slide} key={slide} />
-        ))}
-      </Carousel>
-      <ContentItem product={productToShow} nameCompany={products.nameCompany} />
+      <div className='md:flex md:gap-10 xl:gap-20 md:p-10 xl:p-20 md:items-center'>
+        <div className='md:w-1/2'>
+          <ImgsItem slides={slides} />
+        </div>
+        <div className='md:w-1/2'>
+          <ContentItem product={productToShow} nameCompany={products.nameCompany} />
+        </div>
+      </div>
     </div>
   )
 }
