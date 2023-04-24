@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { Carousel } from './Carousel'
+import { MiniImages } from './MiniImages'
+import { ModalItem } from './ModalItem'
 
 export function ImgsItem ({ slides }) {
+  const [openModal, setOpenModal] = useState(false)
   const [curr, setCurr] = useState(0)
 
   const prev = () =>
@@ -15,27 +18,15 @@ export function ImgsItem ({ slides }) {
   }
   return (
     <>
-      <Carousel curr={curr} prev={prev} next={next}>
-        {slides.map(slide => (
-          <img className='w-screen aspect-4/3 md:aspect-square object-cover md:rounded-3xl' src={slide} key={slide} />
-        ))}
-      </Carousel>
-      <div className='hidden md:grid grid-flow-row grid-cols-4 auto-cols-max gap-4 py-8 '>
-        {slides.map((img, i) => {
-          return (
-            <div
-              key={img}
-              className={`rounded-2xl border-[3px] ${i === curr ? ' border-cus-orange' : 'border-transparent '}`}
-            >
-              <img
-                className={`aspect-square object-cover rounded-xl cursor-pointer hover:opacity-50 ${i === curr ? 'opacity-50' : ''}`}
-                src={img}
-                onClick={() => setImg(i)}
-              />
-            </div>
-          )
-        })}
+      {/* <div onClick={() => setOpenModal(prev => !prev)}> */}
+      <div className='overflow-hidden relative cursor-pointer' onClick={() => setOpenModal(prev => !prev)}>
+        <Carousel curr={curr} prev={prev} next={next} slides={slides} />
       </div>
+      <MiniImages curr={curr} slides={slides} setImg={setImg} />
+
+      {
+        !!openModal && <ModalItem slides={slides} modal={() => setOpenModal(prev => !prev)} />
+      }
     </>
 
   )

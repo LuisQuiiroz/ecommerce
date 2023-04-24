@@ -1,11 +1,13 @@
-import { products, toDecimal } from '../App'
+import { toDecimal } from '../App'
+import { useProducts } from '../hooks/useProducts'
 import { IconDelete } from './Icons'
 import { PrimaryButton } from './PrimaryButton'
 
 function WithItems () {
+  const { AllProducts } = useProducts()
   return (
     <div>
-      {products.products.map(({ images, title, discountPrice, normalPrice, discount }) => {
+      {AllProducts.map(({ images, title, discountPrice, normalPrice, discount }) => {
         const finalPrice = discount ? discountPrice : normalPrice
         return (
           <div
@@ -53,14 +55,15 @@ function Empty () {
 }
 
 export function CartItem () {
+  const { AllProducts } = useProducts()
   return (
     <div className='sticky top-20 md:top-24 sm:ml-auto max-w-sm mx-4 z-10'>
-      <div className='absolute right-0 bg-cus-white rounded-xl w-full border border-cus-orange'>
+      <div className='absolute right-0 bg-cus-white rounded-xl w-full shadow-2xl'>
         <div className='p-6'>
           <div className='pb-6 border-b-2'>
             <p className='font-k-bold'>Cart</p>
           </div>
-          {products.products.length > 1 ? <WithItems /> : <Empty />}
+          {AllProducts.length > 0 ? <WithItems /> : <Empty />}
         </div>
       </div>
     </div>
