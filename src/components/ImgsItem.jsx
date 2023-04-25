@@ -16,16 +16,21 @@ export function ImgsItem ({ slides }) {
   const setImg = (i) => {
     setCurr(i)
   }
+  const openModalOnLargeDevices = () => {
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      setOpenModal(prev => !prev)
+    }
+  }
   return (
     <>
       {/* <div onClick={() => setOpenModal(prev => !prev)}> */}
-      <div className='overflow-hidden relative cursor-pointer' onClick={() => setOpenModal(prev => !prev)}>
+      <div className='overflow-hidden relative md:cursor-pointer' onClick={openModalOnLargeDevices}>
         <Carousel curr={curr} prev={prev} next={next} slides={slides} />
       </div>
       <MiniImages curr={curr} slides={slides} setImg={setImg} />
 
       {
-        !!openModal && <ModalItem slides={slides} modal={() => setOpenModal(prev => !prev)} />
+        !!openModal && <ModalItem slides={slides} modal={() => setOpenModal(prev => !prev)} initial={curr} />
       }
     </>
 

@@ -5,14 +5,17 @@ export function MiniImages ({ slides, curr, setImg }) {
         return (
           <div
             key={img}
-            className={`rounded-2xl border-[3px] ${i === curr ? ' border-cus-orange' : 'border-transparent '}`}
+            className={`rounded-2xl border-[3px] ${i === curr ? ' border-cus-primary' : 'border-transparent '}`}
           >
-            <img
-              className={`aspect-square object-cover rounded-xl cursor-pointer hover:opacity-50 ${i === curr ? 'opacity-50' : ''}`}
-              src={img}
-              onClick={() => setImg(i)}
-            />
+            <div className='bg-white rounded-xl'>
+              <img
+                className={`aspect-square object-cover rounded-xl cursor-pointer hover:opacity-50 ${i === curr ? 'opacity-50' : ''}`}
+                src={img}
+                onClick={() => setImg(i)}
+              />
+            </div>
           </div>
+
         )
       })}
     </div>

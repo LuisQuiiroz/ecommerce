@@ -19,18 +19,15 @@ function WithItems () {
               src={images[0]}
               alt='title'
             />
-            <div
-              className='w-9/12 '
-            >
+            <div className='w-9/12 '>
               <p>{title}</p>
               <div className='flex gap-2'>
-
                 <p>{toDecimal(finalPrice)}</p>
                 <p>x3</p>
-                <span className='font-k-bold text-cus-black'>{toDecimal(finalPrice * 3)}</span>
+                <span className='font-k-bold text-black'>{toDecimal(finalPrice * 3)}</span>
               </div>
             </div>
-            <button className='w-1/12 hover:text-cus-orange'>
+            <button className='w-1/12 hover:text-cus-primary'>
               <IconDelete />
             </button>
           </div>
@@ -58,7 +55,7 @@ export function CartItem () {
   const { AllProducts } = useProducts()
   return (
     <div className='sticky top-20 md:top-24 sm:ml-auto max-w-sm mx-4 z-10'>
-      <div className='absolute right-0 bg-cus-white rounded-xl w-full shadow-2xl'>
+      <div className='absolute right-0 bg-white rounded-xl w-full shadow-2xl'>
         <div className='p-6'>
           <div className='pb-6 border-b-2'>
             <p className='font-k-bold'>Cart</p>
