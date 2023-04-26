@@ -10,7 +10,7 @@ export function MiniImages ({ slides, curr, setImg }) {
             <div className='bg-white rounded-xl'>
               <img
                 className={`aspect-square object-cover rounded-xl cursor-pointer hover:opacity-50 ${i === curr ? 'opacity-50' : ''}`}
-                src={img}
+                src={`${import.meta.env.VITE_PUBLIC_URL}${img}`}
                 onClick={() => setImg(i)}
               />
             </div>

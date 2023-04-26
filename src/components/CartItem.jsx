@@ -16,7 +16,7 @@ function WithItems () {
           >
             <img
               className='w-2/12 rounded-xl'
-              src={images[0]}
+              src={`${import.meta.env.VITE_PUBLIC_URL}${images[0]}`}
               alt='title'
             />
             <div className='w-9/12 '>

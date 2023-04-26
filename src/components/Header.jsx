@@ -10,6 +10,8 @@ export function Header () {
   const [openModal, setOpenModal] = useState(false)
   const [openCart, setOpenCart] = useState(false)
 
+  const avatar = '/images/image-avatar.png'
+
   const toggleCart = () => setOpenCart(prev => !prev)
 
   return (
@@ -40,7 +42,7 @@ export function Header () {
             </button>
           </div>
           <button>
-            <img className='w-8 h-8 md:w-12 md:h-12 border border-transparent hover:border-cus-primary rounded-full' src='/images/image-avatar.png' alt='avatar' />
+            <img className='w-8 h-8 md:w-12 md:h-12 border border-transparent hover:border-cus-primary rounded-full' src={`${import.meta.env.VITE_PUBLIC_URL}${avatar}`} alt='avatar' />
           </button>
         </div>
       </nav>

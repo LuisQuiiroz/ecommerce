@@ -8,7 +8,7 @@ export function Carousel ({ slides, curr, prev, next, isModal = false }) {
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides.map(slide => (
-          <img className='w-screen aspect-4/3 md:aspect-square object-cover md:rounded-3xl' src={slide} key={slide} />
+          <img className='w-screen aspect-4/3 md:aspect-square object-cover md:rounded-3xl' src={`${import.meta.env.VITE_PUBLIC_URL}${slide}`} key={slide} />
         ))}
       </div>
       <div className={`absolute inset-0 flex items-center justify-between p-4 ${isModal ? '' : 'md:hidden'}`}>
